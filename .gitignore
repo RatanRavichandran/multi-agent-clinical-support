@@ -1,0 +1,25 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyi
+
+# Virtual environments
+.venv/
+venv/
+.env
+.env.*
+
+# Generated data and caches
+outputs/
+db/
+*.sqlite3
+*.bin
+*.log
+
+# Build outputs
+build/
+dist/
+
+# OS-specific clutter
+.DS_Store
+Thumbs.db

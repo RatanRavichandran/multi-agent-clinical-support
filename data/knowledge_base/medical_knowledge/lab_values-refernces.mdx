@@ -1,0 +1,68 @@
+# Radiology Reference Values Guide
+
+## CT Imaging Parameters
+
+| Parameter | Normal Reference Range | Clinical Significance |
+|-----------|-------------------------|-----------------------|
+| CTDIvol (Head) | 50-75 mGy [1][8] | Elevated: Increased radiation exposure risk, requires protocol optimization. Values above 75 mGy may indicate non-compliance with ALARA principles [6][8]. |
+| CTDIvol (Chest) | 10-30 mGy [1][6] | Elevated in pulmonary angiography: May suggest inadequate dose modulation. Values >30 mGy in routine chest CT warrant protocol review [8]. |
+| DLP (Abdomen-Pelvis) | 500-1500 mGy·cm [6][8] | Increased dose-length product correlates with cumulative radiation exposure. DLP >1500 mGy·cm requires justification for multiphase studies [1][6]. |
+| SSDE (Pediatric) | 2.4-26 mGy [8] | Size-specific dose estimate must be adjusted for patient effective diameter. Exceeding 26 mGy in children necessitates immediate protocol reassessment [8]. |
+
+## MRI Quality Metrics
+
+| Parameter | Optimal Range | Clinical Implications |
+|-----------|---------------|-----------------------|
+| SNR (1.5T Brain) | ≥20:1 [2][7] | Low SNR (<15:1) results in poor gray-white matter differentiation. Affected by voxel size (0.5-1mm³ optimal), TR (2000-3000ms), and TE (80-120ms) [2][7]. |
+| SAR (Whole Body) | ≤4 W/kg [2] | Specific absorption rate exceeding 4 W/kg risks thermal injury. Reduced using low transmitter bandwidth sequences [2]. |
+| Magnetic Field Homogeneity | <0.5 ppm [7] | Inhomogeneity >1 ppm causes geometric distortion, particularly problematic in fMRI and diffusion imaging [7]. |
+
+## Ultrasound Safety Indices
+
+| Index | Safe Threshold | Clinical Protocol |
+|-------|----------------|-------------------|
+| Mechanical Index (MI) | <0.7 [3] | >0.3 requires reduced scanning time in neonatal studies. >0.7 contraindicated with ultrasound contrast agents [3]. |
+| Thermal Index (TIS) | <1.0 [3] | >0.7 mandates limited fetal exposure time. >1.0 prohibited in ocular ultrasound [3]. |
+| Spatial Peak Temporal Average (Abdominal) | ≤720 mW/cm² [3] | Exceeding 720 mW/cm² violates FDA Track 3 guidelines except for ophthalmic applications (≤50 mW/cm²) [3]. |
+
+## Nuclear Medicine Exposure
+
+| Radiopharmaceutical | Administered Activity | Exposure Rate at 1m |
+|---------------------|-----------------------|---------------------|
+| ⁹⁹mTc-MDP (Bone Scan) | 740 MBq [4] | 7.5 μSv/h at 1m [4] |
+| ¹⁸F-FDG (PET/CT) | 370 MBq [4] | 60 μSv/h at 0.5m [4] |
+| ¹³¹I (Thyroid Therapy) | 3.7 GBq [4] | 100 μSv/h at 1m (requires lead shielding) [4] |
+
+## Contrast Media Characteristics
+
+| Agent Type | Osmolality (mOsm/kg) | Adverse Reaction Rate | Clinical Considerations |
+|------------|----------------------|-----------------------|-------------------------|
+| Iso-osmolar Iodinated (e.g., Iodixanol) | 290 [5] | 0.2-0.4% [5] | Preferred for intrathecal/intravascular use. Lower nephrotoxicity risk [5]. |
+| Low-osmolar Ionic (e.g., Ioxaglate) | 600 [5] | 0.6-1.2% [5] | Contraindicated in sickle cell crisis. Higher histamine release potential [5]. |
+| Barium Sulfate | N/A | 0.04% [5] | Absolute contraindication in suspected perforation. Requires 98% purity for enteric studies [5]. |
+| Gadolinium-Based (MRI) | 1960 [2] | 0.07-2.4% [2] | NSF risk requires GBCA class monitoring (group II agents preferred for renal impairment) [2]. |
+
+## Pediatric Dose Reference Levels
+
+| Examination | Age | CTDIvol DRL | SSDE AD |
+|-------------|-----|-------------|---------|
+| Head (Non-contrast) | <1y | 23 mGy [8] | 19 mGy [8] |
+| | 1-5y | 35 mGy [8] | 29 mGy [8] |
+| | 6-10y | 46 mGy [8] | 38 mGy [8] |
+| Chest (PE Protocol) | 11-17y | 11 mGy [6][8] | 9.5 mGy [6][8] |
+
+## MRI Protocol Optimization
+
+| Sequence | Optimal Parameters | SNR Impact |
+|----------|--------------------|------------|
+| T1 SE | TR 400-600ms, TE 10-20ms [2][7] | 15% higher SNR vs GRE [7] |
+| T2 FLAIR | TR 9000ms, TI 2500ms [2] | 30% CSF suppression efficiency [2] |
+| DWI (b=1000) | 1.5T: 3 averages [7] | 40% SNR improvement vs single acquisition [7] |
+
+## Radiation Safety Metrics
+
+| Metric | Threshold | Regulatory Standard |
+|--------|-----------|---------------------|
+| Annual Effective Dose (Staff) | ≤20 mSv [1][4] | ICRP 103 guidelines [1][4] |
+| Lens Dose Limit | ≤20 mSv/yr [1] | Revised 2011 ICRP [1] |
+| Public Area Dose Rate | ≤1 μSv/h [4] | NRC 10 CFR 20 [4] |

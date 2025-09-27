@@ -1,0 +1,106 @@
+ethics_review_task:
+  description: >
+    Review the patient case from an ethical perspective. Use the FileReadTool to access
+    patient history, lab results, and imaging data to identify the patient and their condition.
+    Additionally, use the MDXSearchTool to query the medical knowledge base for ethical guidelines
+    and precedents related to similar cases. Consider issues of consent, privacy, treatment
+    options, and any potential ethical dilemmas.
+  expected_output: >
+    An ethics assessment report highlighting any ethical considerations, potential
+    concerns, and recommendations for ethically sound approaches.
+  agent: ethics_advisor
+  output_file: "outputs/ethics_assessment.md"
+  create_directory: True
+
+medical_research_task:
+  description: >
+    First, use the FileReadTool to read the patient history and identify the patient's condition.
+    Then conduct thorough research on this condition using the following tools:
+    1. MDXSearchTool: Query the medical knowledge base for established medical information.
+    2. FileReadTool: Understand the specific patient context from their records.
+    3. SerperDevTool: Search the web for the latest research, treatments, and clinical guidelines
+    related to the condition. Use search queries like "[condition] latest treatments",
+    "[condition] diagnostic criteria", and "[condition] clinical guidelines".
+    4. ScrapeWebsiteTool: When you find relevant medical websites or journals, use this tool
+    to scrape and extract detailed information.
+    Focus on the latest treatments, diagnostic criteria, clinical guidelines, and any recent
+    medical advancements. Pay special attention to information that is most relevant to the
+    patient's specific presentation based on their records.
+  expected_output: >
+    A comprehensive research report on the patient's condition with relevant medical information
+    tailored to the patient's specific case, including the latest treatments, diagnostic
+    criteria, and clinical guidelines from both local knowledge and web sources.
+  agent: medical_researcher
+  output_file: "outputs/condition_research.md"
+  create_directory: True
+
+patient_history_task:
+  description: >
+    Compile and analyze the complete medical history of the patient. Use the FileReadTool
+    to read the patient_history.txt file. Extract key information including the patient's name,
+    their condition, past treatments, surgeries, allergies, and family medical history.
+    Use the MDXSearchTool to identify potential significance of historical elements based on medical knowledge.
+  expected_output: >
+    A detailed patient history report highlighting the patient's name, their condition, key medical events,
+    patterns, and their potential significance to the current condition.
+  agent: patient_historian
+  output_file: "outputs/patient_history.md"
+  create_directory: True
+
+lab_interpretation_task:
+  description: >
+    Analyze and interpret all laboratory test results and imaging data for the patient.
+    Use the FileReadTool to read the lab_history.txt and imaging_lab_data.txt files.
+    Identify abnormalities and their potential clinical significance. Use the MDXSearchTool to
+    reference normal ranges, typical presentations, and clinical implications of findings.
+  expected_output: >
+    A comprehensive lab interpretation report explaining test results, imaging findings,
+    and their implications for diagnosis.
+  agent: lab_interpreter
+  context: [patient_history_task]
+  output_file: "outputs/lab_interpretation.md"
+  create_directory: True
+
+case_data_extraction_task:
+  description: >
+    Extract and organize all relevant medical data from the patient's case. Use the
+    FileReadTool to access all patient files. Organize information including symptoms,
+    vital signs, physical examination findings, and other clinical observations. Use the
+    MDXSearchTool to help categorize and prioritize findings based on medical knowledge.
+  expected_output: >
+    A structured case data report with organized clinical information, highlighting
+    key findings and their potential diagnostic significance.
+  agent: case_data_extractor
+  context: [patient_history_task, lab_interpretation_task]
+  output_file: "outputs/case_data.md"
+  create_directory: True
+
+diagnostic_assessment_task:
+  description: >
+    Based on all available information, develop a comprehensive diagnostic assessment
+    for the patient. Use both the FileReadTool to review patient data and the MDXSearchTool
+    to reference diagnostic criteria, differential diagnoses, and clinical guidelines.
+    Consider differential diagnoses and provide reasoning for your conclusions.
+    Incorporate the latest research findings from the medical_research_task.
+  expected_output: >
+    A detailed diagnostic report with primary and differential diagnoses, confidence
+    levels, and supporting evidence from both patient data and medical literature.
+  agent: diagnostic_specialist
+  context: [medical_research_task, patient_history_task, lab_interpretation_task, case_data_extraction_task]
+  output_file: "outputs/diagnostic_report.md"
+  create_directory: True
+
+treatment_recommendation_task:
+  description: >
+    Develop a comprehensive treatment plan for the patient based on the diagnosis.
+    Use the MDXSearchTool to query the knowledge base for treatment guidelines, medication
+    information, and best practices. Consider the patient's history, ethical considerations,
+    and the specific diagnosis when formulating recommendations. Incorporate the latest
+    treatment options identified in the medical research task.
+  expected_output: >
+    A detailed treatment plan with medications, procedures, lifestyle modifications,
+    and follow-up recommendations, with references to clinical guidelines and evidence.
+  agent: medical_researcher
+  context: [diagnostic_assessment_task, ethics_review_task, patient_history_task]
+  output_file: "outputs/treatment_plan.md"
+  create_directory: True
