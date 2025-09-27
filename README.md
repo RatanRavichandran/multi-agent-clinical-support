@@ -67,7 +67,7 @@ Our system successfully analyzed a complex cardiac case:
 ## 📁 Project Structure
 
 ```
-Team2_MajorProject/
+multi-agent-clinical-support/
 ├── 🧠 data/knowledge_base/          # Medical knowledge repository
 │   ├── medical_knowledge/           # Lab values, medication interactions, vital signs
 │   ├── medical_literature/          # Clinical guidelines and practice standards
@@ -106,7 +106,7 @@ Our system generates comprehensive reports for each clinical aspect:
 1. **Clone the repository**
    ```bash
    git clone <repo-url>
-   cd Team2_MajorProject-main
+   cd multi-agent-clinical-support-main
    ```
 
 2. **Set up environment**
